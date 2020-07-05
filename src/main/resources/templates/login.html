@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link href="css/chess.css" rel="stylesheet" type="text/css" th:src="@{/css/chess.css}">
+</head>
+<body>
+<div class="menu_box" id="menuBox">
+    <div class="menu_init" id="indexBox">
+        <font><p style="color: red" th:text="${error}" th:if="${not #strings.isEmpty(error)}"></p></font>
+        <form action="/login" method="post">
+            <br><span>[[#{login.username}]]:</span><input name="username"><span>[[#{login.password}]]</span> <input
+                name="password">
+            <br>
+            <button type="submit">[[#{login.btn}]]</button>
+
+        </form>
+
+    </div>
+</div>
+<a class="btn_cn" th:href="@{/login.html(l='zh_CN')}">中文</a>
+<a class="btn_us" th:href="@{/login.html(l='en_US')}">/English</a>
+</body>
+</html>

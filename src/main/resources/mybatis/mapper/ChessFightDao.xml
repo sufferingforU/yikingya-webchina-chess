@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yiking.webchinachess.mapper.ChessFightDao">
+    <update id="updateFight">update c_fight set step=step+1,chess=#{param1} where
+        firstid=#{param2}
+    </update>
+    <select id="selectRival" resultType="com.yiking.webchinachess.bean.ChessFight">select * from c_fight where
+        secondid=#{id}
+    </select>
+    <select id="selectMyself" resultType="com.yiking.webchinachess.bean.ChessFight">select * from c_fight where
+        firstid=#{id}
+    </select>
+    <insert id="addFighter">insert into c_fight
+        (firstid,username,secondid,step,oppotunity,winnum,totalnum,flag,chess)
+        value(#{param1},#{param2},#{param3},#{param4},#{param5},0,0,1,23)
+    </insert>
+    <update id="updateFighter">update c_fight set
+        secondid=#{param1},step=0,chess=21
+        ,oppotunity=#{param2} , flag=#{param3} where firstid=#{param4}
+    </update>
+    <select id="selectWaitting" resultType="com.yiking.webchinachess.bean.ChessFight">select * from c_fight
+        where secondid=21
+    </select>
+    <update id="updateWinNum">update c_fight set winnum=winnum+1, totalnum=totalnum+1,flag=0 where firstid=#{id}
+    </update>
+    <update id="updateLossNum">update c_fight set totalnum=totalnum+1,flag=0 where firstid=#{id}</update>
+</mapper>

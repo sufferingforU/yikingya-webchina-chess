@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yiking.webchinachess.mapper.ChessUserDao">
+    <insert id="saveUser">insert into c_user (username,password,email)value(#{username},#{password},#{email})</insert>
+    <!-- <cache></cache> -->
+    <select id="checkUser" resultType="com.yiking.webchinachess.bean.ChessUser">
+        select * from C_user where username=#{param1} and password=#{param2}
+    </select>
+</mapper>

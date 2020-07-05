@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <title>中国象棋 in html5</title>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0"/>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+    <link href="css/chess.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+
+    <!--[if lt IE 9]>
+    <script> alert("对不起，您的浏览器不支持HTML5，请升级浏览器至IE9、firefox或者谷歌浏览器！")</script>
+    < ![endif]-->
+</head>
+<body>
+<div id="login" class="login">
+    <a href="tologin1"><font>[[#{login.game5}]]</font></a>&nbsp;&nbsp;&nbsp;<a
+        href="toregister1"><font>[[#{login.game6}]]</font></a>
+</div>
+<div id="chessBox" class="chess_box">
+    <canvas id="chess"></canvas>
+
+    <audio src="audio/click.wav" id="clickAudio" preload="auto"></audio>
+    <audio src="audio/select.wav" id="selectAudio" preload="auto"></audio>
+    <div class="bn_box" id="bnBox">
+        <input type="button" name="restartBtn" id="restartBtn"
+               th:value="#{login.page1}"/> <input type="button" name="gohomeBtn"
+                                                  id="gohomeBtn" th:value="#{login.page2}"/> <input type="button"
+                                                                                                    name="regretBtn"
+                                                                                                    id="regretBtn"
+                                                                                                    th:value="#{login.page3}"/>
+    </div>
+</div>
+
+<div class="menu_box" id="menuBox">
+    <div class="menu_init" id="indexBox">
+        <a id="indexDy">[[#{login.game1}]]</a> <a id="indexOL" style="display: none">人人对战</a> <a id="indexOL1"
+    >[[#{login.game2}]]</a> <a id="indexQj">[[#{login.game3}]]</a> <a
+            id="stypeBtn">[[#{login.game4}]]</a>
+
+    </div>
+
+    <div class="menu_dy" id="menuDy">
+        <div class="menu_info">
+            <div class="menu_fh" id="menuFh"></div>
+            <label> <input name="depth" type="radio" value="2">
+                [[#{login.level1}]]
+            </label> <br/> <label> <input name="depth" type="radio" value="3"
+                                          checked> [[#{login.level2}]]
+        </label> <br/> <label> <input name="depth" type="radio" value="5">
+            [[#{login.level3}]]
+        </label>
+        </div>
+        <a id="playBtn"> [[#{login.level4}]]</a>
+    </div>
+    <div class="menu_we" id="menuWe" style="display: none">
+        <a id="webBtn">[[#{login.level4}]]</a>
+        <div class="menu_wer" id="menuWer">
+            <label id="rivalname"> </label>
+        </div>
+    </div>
+    <input type="submit" name="restartBtn8" id="restartBtn2"
+           style="display: none"/>
+    <input type="submit" name="restartBtn8" id="restartBtn1"
+           style="display: none"/>
+    <input type="submit" name="restartBtn8" id="restartBtn3"
+           style="display: none"/>
+    <div class="menu_qj" id="menuQj">
+        <div class="menu_info">
+            <div class="menu_fh" id="menuGb"></div>
+            <label> <input name="clasli" type="radio" value="0" checked>
+                [[#{login.wreckage1}]]
+            </label> <br/> <label> <input name="clasli" type="radio" value="1">
+            [[#{login.wreckage2}]]
+        </label> <br/> <label> <input name="clasli" type="radio" value="2">
+            [[#{login.wreckage3}]]
+        </label>
+        </div>
+        <a id="clasliBtn"> [[#{login.wreckage4}]]</a>
+    </div>
+</div>
+<div class="show_rival" id="showRival" style="display: none">
+    <label id="timer"> </label><br>
+    <label id="rivalname1"> </label><br>
+    <label id="mychess"> </label><br>
+    <label id="currchess"> </label>
+</div>
+<div class="rival_msg" id="rivalMsg" style="display: none">
+    <label id="rivalnameR"> </label><br>
+    <label id="winnumR"> </label><br>
+    <label id="totalnumR"> </label><br>
+    <label id="winrateR"> </label>
+</div>
+<div class="myself_msg" id="myselfMsg" style="display: none">
+    <label id="rivalnameM"> </label><br>
+    <label id="winnumM"> </label><br>
+    <label id="totalnumM"> </label><br>
+    <label id="winrateM"> </label>
+</div>
+<a class="btn_cn" id="btnUs1" style="display: none">中文</a><!--th:href="@{/onlineindex.html(l='zh_CN')}"-->
+<a class="btn_us" id="btnUs2" style="display: none">/English</a></div><!--th:href="@{/onlineindex.html(l='en_US')}"-->
+
+<div class="btn_cn" id="BtnCn">
+    <a class="btn_cn" th:href="@{/index.html(l='zh_CN')}">中文</a>
+    <a class="btn_us" id="btnUs" th:href="@{/index.html(l='en_US')}">/English</a></div>
+<script type="text/javascript" src="js/common.js" th:src="@{/js/common.js}"></script>
+<script type="text/javascript" src="js/aiplay.js" th:src="@{/js/aiplay.js}"></script>
+<script type="text/javascript" src="js/p2pplay.js" th:src="@{/js/p2pplay.js}"></script>
+<script type="text/javascript" src="js/AI.js" th:src="@{/js/AI.js}"></script>
+<script type="text/javascript" src="js/gambit.js" th:src="@{/js/gambit.js}"></script>
+<script type="text/javascript" src="js/clasli.js" th:src="@{/js/clasli.js}"></script>
+<script type="text/javascript" charset="utf-8"
+        src="js/cordova-2.2.0.js"></script>
+
+</body>
+</html>
