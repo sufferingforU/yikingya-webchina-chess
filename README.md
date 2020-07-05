@@ -1,1 +1,2 @@
-# yikingya-webchina-chess
+软件介绍：china-chess软件是一款基于java和JavaScript开发的java-web项目，它提供了网页上面的象棋对战，可作为网络象棋对战的服务器，不同用户可在同一局域网下实现网络对战。
+
